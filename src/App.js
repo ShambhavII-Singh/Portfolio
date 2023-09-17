@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Loading from '././components/loading';
+import LoadingScreen from '././components/loading';
 
 class App extends React.Component {
   render() {
@@ -14,4 +14,4 @@ class App extends React.Component {
   }
 }
 
-export default Loading(App);
+export default LoadingScreen(App);

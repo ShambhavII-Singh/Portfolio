@@ -2,7 +2,7 @@ import React from "react";
 import ReactLoading from "react-loading";
 import { Fade } from "react-bootstrap";
 
-const Loading = (WrappedComponent) => {
+const LoadingScreen = (WrappedComponent) => {
    return class extends React.Component {
       constructor(props){
          super(props)
@@ -40,5 +40,5 @@ const Loading = (WrappedComponent) => {
    }
 }
 
-export default Loading;
+export default LoadingScreen;
 
