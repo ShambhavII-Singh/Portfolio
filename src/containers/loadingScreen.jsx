@@ -1,13 +1,16 @@
 import React from "react";
-import ReactLoading from "react-loading";
 import { Fade } from "react-bootstrap";
+import Lottie from "lottie-react";
+import loadingAnimationDark from '../assets/loadingAnimationDark.json'
+import loadingAnimationLight from '../assets/loadingAnimationLight.json'
 
 const LoadingScreen = (WrappedComponent) => {
    return class extends React.Component {
       constructor(props){
          super(props)
          this.state = {
-            done: undefined
+            done: undefined,
+            darkTheme: true
          }
       }
 
@@ -30,7 +33,7 @@ const LoadingScreen = (WrappedComponent) => {
          return(
             <div>
                {!this.state.done ? (
-                  <ReactLoading type={"bars"} color={"red"} />
+                  this.state.darkTheme ? <Lottie animationData={loadingAnimationDark} loop={true} width={"200px"} height={200} /> : <Lottie animationData={loadingAnimationLight} loop={true} width={200} height={200}/>
                ) : (
                   <Fade><WrappedComponent {...this.props} /></Fade>
                )}

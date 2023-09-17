@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import LoadingScreen from '././components/loading';
+import LoadingScreen from './containers/loadingScreen';
 
 class App extends React.Component {
   render() {
