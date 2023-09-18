@@ -2,7 +2,8 @@ import React from "react";
 import Lottie from "lottie-react";
 import loadingAnimationDark from '../assets/loadingAnimationDark.json'
 import loadingAnimationLight from '../assets/loadingAnimationLight.json'
-import { AnimatePresence } from "framer-motion";
+import '../containers/loadingScreen.css'
+import Fade from 'react-bootstrap/Fade'
 
 const LoadingScreen = (WrappedComponent) => {
 
@@ -32,17 +33,18 @@ const LoadingScreen = (WrappedComponent) => {
 
       render() {
          return(
-            
                <div>
                   {!this.state.done ? (
-                     this.state.darkTheme ? 
-                        <Lottie animationData={loadingAnimationDark} loop={true} /> : 
-                        <Lottie animationData={loadingAnimationLight} loop={true} />
+                     <div className="loading__animation">
+                        {this.state.darkTheme ? 
+                           <Lottie animationData={loadingAnimationDark} loop={true} /> : 
+                           <Lottie animationData={loadingAnimationLight} loop={true} />
+                        }
+                     </div>
                   ) : (
-                     <AnimatePresence><WrappedComponent {...this.props} /></AnimatePresence>
+                     <WrappedComponent {...this.props} />
                   )}
                </div>
-            
          )
       }
    }
